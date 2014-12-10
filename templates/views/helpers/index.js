@@ -66,7 +66,7 @@ module.exports = function() {
 		// ensure that context is undefined, not null, as that can cause errors
 		context = context === null ? undefined : context;
 		
-		var f = options.hash.format || 'MMM Do, YYYY',
+		var f = options.hash.format || 'MMM',
 			timeago = options.hash.timeago,
 			date;
 		
@@ -78,6 +78,34 @@ module.exports = function() {
 			date = moment(context).format(f);
 		}
 		return date;
+	};
+
+	// Return day
+	_helpers.day = function(context, options) {
+		if (!options && context.hasOwnProperty('hash')) {
+			options = context;
+			context = undefined;
+			
+			if (this.publishedDate) {
+				context = this.publishedDate;
+			}
+		}
+		
+		// ensure that context is undefined, not null, as that can cause errors
+		context = context === null ? undefined : context;
+		
+		var f = options.hash.format || 'D',
+			timeago = options.hash.timeago,
+			day;
+		
+		// if context is undefined and given to moment then current timestamp is given
+		// nice if you just want the current year to define in a tmpl
+		if (timeago) {
+			day = moment(context).fromNow();
+		} else {
+			day = moment(context).format(f);
+		}
+		return day;
 	};
 	
 	// ### Category Helper

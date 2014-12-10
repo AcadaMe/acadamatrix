@@ -1,0 +1,16 @@
+<div class="container-fluid content-breather-small" id="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<h4>Blog Post</h4>
+			</div><!-- End of column one -->
+			<div class="col-md-6 col-sm-6 text-right">
+				<ol class="breadcrumb">
+					  <li><a href="/">Home</a></li>
+					  <li><a href="/blog">Blog</a></li>
+					  {{#if data.post.slug}}<li>{{data.post.title}}</li>{{/if}}
+				</ol>
+			</div><!-- End of column two -->
+		</div><!-- End of row -->	
+	</div><!-- End of container -->
+</div><!-- End of fluid container -->

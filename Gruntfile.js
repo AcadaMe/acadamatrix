@@ -105,6 +105,11 @@ module.exports = function(grunt) {
 		]);
 	});
 
+	// load less
+	grunt.registerTask('less',
+        'Execute the test task, then watch files for changes',
+        ['less']);
+
 	// default option to connect server
 	grunt.registerTask('serve', function(target) {
 		grunt.task.run([

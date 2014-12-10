@@ -1,20 +1,46 @@
+<!-- Start of blog post -->
+{{>page-top}}
 <div class="container">
 	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-			<article>
-				<p><a href="/blog">&larr; back to the blog</a></p>
-				<hr>
-				<header>
-					<h1>{{data.post.title}}</h1>
-					<h5>
-						{{{categoryList data.post.categories prefix="Posted in "}}}
-						{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</h5>
-				</header>
-				<div class="post">
+		<div class="col-md-9">
+			<h4 class="no-bottom-margin">{{data.post.title}}</h4>
+				<hr class="underline">
+					<p class="branding"><em>{{#if author.name.first}}by {{author.name.first}}{{/if}}</em></p>
+
+					{{#if data.post.image.url}}
+						<img class="blog-thumb" src="{{data.post.image.url}}" alt="Blog image">
+							<div class="caption small"><em>This is a caption</em></div>
+					{{/if}}
+					
+					<!-- Start of article content -->
+
 					{{{data.post.content.extended}}}
-				</div>
-			</article>
-		</div>
-	</div>
-</div>
+				
+					<!-- End of article content -->
+					
+					<!-- Suggested posts section -->
+				
+	<!-- Please note: the image below is of the comment section from disqus, it is just for illustrative purposes, if you wish to add a disqus comments block, please remove the image code and replace it with the code given to you by disqus.  -->
+		
+	<div id="disqus" class="row">
+		<div class="col-md-12">
+			{{>disqus}}
+		</div><!-- End of column -->
+	</div><!-- End of row -->
+</div><!-- End of column, that houses this entire blog post -->
+	
+	<!-- Blog sidebar -->
+		
+		<div class="col-md-3" id="blog-sidebar">
+		
+			<h4 class="no-bottom-margin no-top-margin">Recent Posts</h4>
+				<hr class="underline">
+					<ul class="blog-categories">
+					{{# each data.posts }}
+						<li><a href="/blog/post/{{this.slug}}">{{this.title}}</a></li>
+					{{/each}}
+					</ul><!-- End of categories -->
+		
+		</div><!-- End of column, and blog sidebar -->
+	</div><!-- End of row -->
+</div><!-- End of container -->
