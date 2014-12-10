@@ -5,3 +5,7 @@
 .pagination {
 	padding-bottom: 20px;
 }
+
+.overlays .img {
+  float: none;
+}

@@ -158,7 +158,7 @@
 					{{#if this.image.url}}
 
 					<div class="img">
-						<img class="img-rounded-small" 
+						<img class="img-rounded-small img-responsive" 
 						src="{{this.image.url}}" alt="image">
 							<div class="overlay">
 								<a href="/blog/post/{{this.slug}}" class="expand"><i class="icon" data-icon="&#xe067;"></i></a>
@@ -174,7 +174,7 @@
 								<li>{{#if this.author.name.first}}by {{this.author.name.first}}{{/if}}</li>
 								<li><i class="icon" data-icon="&#xe082;"></i> {{day}} of {{date}}&nbsp;&nbsp;</li>
 								<li><i class="icon" data-icon="&#xe016;"></i> 
-								<span class="disqus-comment-count" data-disqus-url="http://ec2-54-174-168-166.compute-1.amazonaws.com/blog/post/{{this.slug}}"></span></li>
+								<span class="disqus-comment-count heavy" data-disqus-url="http://localhost:3000/blog/post/{{this.slug}}"></span></li>
 							</ul>
 						</div><!-- End of animated wrapper -->
 					</div><!-- End of column -->

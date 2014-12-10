@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acadaslate{{site.name}}</title>
+    <title>Acadaslate</title>
     <!-- Meta tags -->
 
 		<meta name="description" content="">
@@ -67,7 +67,24 @@
 					event.preventDefault();
 					
 					$('html, body').animate({scrollTop: 0}, 300);
-				})
+				});
+
+				// Map for contact us page
+				$(document).ready(function(){
+					map = new GMaps({
+					  div: '#map',
+					  lat: -12.043333,
+					  lng: -77.028333
+					});
+					map.addMarker({
+					  lat: -12.043333,
+					  lng: -77.028333,
+					  title: 'Lima',
+					  infoWindow: {
+					  	content: '<p>Acadaslate is here!</p>',
+					  }
+					});
+				});
 			});
 
 	  </script>
@@ -104,6 +121,10 @@
 		<script type="text/javascript" src="/js/layerslider.kreaturamedia.jquery.js" ></script>
 		<!-- Backstretch -->
 		<script type="text/javascript" src="/js/backstretch.js" ></script>
+		<!-- Google maps api -->
+		<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7"></script>
+		<!-- Google maps handler -->
+		<script type="text/javascript" src="/js/maps.js" ></script>
 		<!-- Initiation scripts  -->
 		<script type="text/javascript" src="/js/scripts.js"></script>
 		
