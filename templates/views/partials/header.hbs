@@ -1,0 +1,41 @@
+				<nav class="navbar navbar-default custom-header" role="navigation">
+				 	<div class="container">
+				              
+	          <!-- This section of code controls the expand and collapse of the mobile navigation,
+	            and forms the button displayed in touch devices -->
+
+	            <div class="navbar-header">
+	              <button type="button" class="navbar-toggle" 
+	                 data-toggle="collapse" data-target="#navbar-mobile">
+	                  <span class="sr-only">Toggle navigation</span>
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span>
+	              </button>
+	                
+				       <!-- Branding for the nav if required, this theme uses this area as the header -->
+				                      
+							<a class="navbar-brand animated bounceInDown go" href="/">
+				      	<img src="/images/logo-email.gif" alt="Header Logo">
+							</a>
+				               
+				</div><!-- End of navbar header -->
+				                
+				<!-- Actual navigation items, dont forget to move the active class when building new pages -->
+				                  
+				<div class="collapse navbar-collapse" id="navbar-mobile">
+					<ul class="nav navbar-nav navbar-right">
+						{{# each navLinks}}
+						<li class="dropdown animatedParent {{#ifeq ../section key}}active{{else}}{{/ifeq}}">
+							<a href="{{ href }}">
+								{{#ifeq 'home' key}}<span data-icon="&#xe02c;" class="icon"></span>{{/ifeq}}
+								{{#ifeq 'blog' key}}<span data-icon="&#xe04e;" class="icon"></span>{{/ifeq}}
+								{{#ifeq 'gallery' key}}<span data-icon="&#xe08d;" class="icon"></span>{{/ifeq}}
+								{{#ifeq 'contact' key}}<span data-icon="&#xe039;" class="icon"></span>{{/ifeq}}
+									{{ label }}
+							</a>
+						</li>
+						{{/each}}
+				</div><!-- End of nav-collapse -->                
+			</div><!-- End of container class -->
+		</nav><!-- End of navigation -->

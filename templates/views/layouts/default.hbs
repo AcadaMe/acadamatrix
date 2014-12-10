@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>acadaslate</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link href="/styles/site.min.css" rel="stylesheet">
-		
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Acadaslate</title>
+    <!-- Meta tags -->
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+    	<script src="js/html5shiv.js"></script>
+		<![endif]-->
+        
+		 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+			
+	  <link rel="stylesheet" href="/styles/css/bootstrap.css">
+	  <link rel="stylesheet" href="/styles/css/animations.css">
+	  <link rel="stylesheet" href="/styles/css/lightbox.css">
+	  <link rel="stylesheet" href="/styles/css/owl.carousel.css">
+	  <link rel="stylesheet" href="/styles/css/layerslider.css">
+	  <link rel="stylesheet" href="/styles/css/flexslider.css">
+	  <link rel="stylesheet" href="/styles/css/outline-icons.css">
+	  <link rel="stylesheet" href="/styles/css/fontawesome.css">
+	  <link rel="stylesheet" href="/styles/css/vidall.css">
+	   <link rel="stylesheet" href="/styles/css/custom.css">
+      
+     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        
+    <link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="114x114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="144x144.png">
+       
+    <!-- Jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
@@ -18,88 +50,66 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
 		<![endif]-->
+       
+    <script>
+	    $(document).ready(function() {
+				// Show or hide the sticky footer button
+				$(window).scroll(function() {
+					if ($(this).scrollTop() > 200) {
+						$('.go-top').fadeIn(200);
+					} else {
+						$('.go-top').fadeOut(200);
+					}
+				});
+				
+				// Animate the scroll to top
+				$('.go-top').click(function(event) {
+					event.preventDefault();
+					
+					$('html, body').animate({scrollTop: 0}, 300);
+				})
+			});
+
+	  </script>
+        
+    </head>
+    <!-- End of the site head -->
+
+    <!-- End of the site head -->
+		<body class="contact_page">
+			<div class="vidall-wrapper"> <!-- Start of global wrapper, this wrapper closes in the sites footer -->
+		{{>header}}
+
+		{{{body}}}
+		<!-- Footer Begins -->
+
+		{{>footer}}
+		 </div> <!-- End of main container element -->
+
+		<!-- Bootsrap -->
+		<script type="text/javascript" src="/js/bootstrap/bootstrap.js"></script>
+		<!-- Animation library -->
+		<script type="text/javascript" src="/js/css3-animate-it.js"></script>
+		<!-- Owl carousel -->
+		<script type="text/javascript" src="/js/owl.carousel.js"></script>
+		<!-- Hover drop downs for Bootstrap nav -->
+		<script type="text/javascript" src="/js/bootstrap-hover-dropdown.js"></script>
+		<!-- Modernizer -->
+		<script type="text/javascript" src="/js/modernizr.js"></script>
+		<!-- Greensock animation engine -->
+		<script type="text/javascript" src="/js/greensock.js" ></script>
+		<!-- Layer slider transitions -->
+		<script type="text/javascript" src="/js/layerslider.transitions.js" ></script>
+		<!-- Layer slider -->
+		<script type="text/javascript" src="/js/layerslider.kreaturamedia.jquery.js" ></script>
+		<!-- Backstretch -->
+		<script type="text/javascript" src="/js/backstretch.js" ></script>
+		<!-- Initiation scripts  -->
+		<script type="text/javascript" src="/js/scripts.js"></script>
 		
-	</head>
-	<body>
-		<div id="header">
-			<div class="container">
-				<div role="navigation" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-							</button>
-							<a href="/" class="navbar-brand">acadaslate</a>
-						</div>
-						<div class="collapse navbar-collapse">
-							<ul class="nav navbar-nav navbar-left">
-									{{# each navLinks}}
-									<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
-										<a href="{{ href }}">{{ label }}</a>
-									</li>
-								{{/each}}
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								{{#if user}}
-								<li><a href="/keystone/signout">Sign Out</a></li>
-								{{else}}
-								<li><a href="/keystone/signin">Sign In</a></li>
-								{{/if}}
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="body">
-			<!--
-				Flash messages allow you to display once-off status messages to users, e.g. form
-				validation errors, success messages, etc
-			-->
-			{{#if messages}}
-			<div id="flash-messages" class="container">
-				{{#if messages.info}}
-				<div class="alert alert-info">
-						{{{flashMessages messages.info}}}
-				</div>
-				{{/if}}
-				{{#if messages.success}}
-				<div class="alert alert-success">
-						{{{flashMessages messages.success}}}
-				</div>
-				{{/if}}
-				{{#if messages.warning}}
-				<div class="alert alert-warning">
-						{{{flashMessages messages.warning}}}
-				</div>
-				{{/if}}
-				{{#if messages.error}}
-				<div class="alert alert-danger">
-						{{{flashMessages messages.error}}}
-				</div>
-				{{/if}}
-			</div>
-			{{/if}}
-			<!-- The content block should contain the body of your template's content-->
-			{{{body}}}
-		</div>
-		<div class="container">
-			<div id="footer">
-				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-			</div>
-		</div>
-		{{!--
-			//- jQuery 1.11.1 is included by default, and required by both Bootstrap
-			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-			//- you can upgrade to 2.1.1 (also bundled) for better performance.
-		--}}
-		<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
-		{{!--
-			//- Customise which Bootstrap javascript files are served by including
-			//- them specifically here, instead of bootstrap-3.2.0.min.js
-		--}}
-		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
+		{{> disqus_comment_count}}
 		{{{isAdminEditorJS user}}}
-	</body>
+
+</body>
 </html>
+						
