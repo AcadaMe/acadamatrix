@@ -39,6 +39,16 @@ module.exports = function(grunt) {
 				'./keystone.js'
 			]
 		},
+		less: {
+			dev: {
+		    options: {
+		      compress: true
+		    },
+		    files: {
+		      "public/styles/site.min.css": "public/styles/site.less"
+		    }
+		  },
+		},
 
 		concurrent: {
 			dev: {
@@ -106,7 +116,7 @@ module.exports = function(grunt) {
 	});
 
 	// load less
-	grunt.registerTask('less',
+	grunt.registerTask('css',
         'Execute the test task, then watch files for changes',
         ['less']);
 
