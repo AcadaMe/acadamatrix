@@ -107,6 +107,34 @@ module.exports = function() {
 		}
 		return day;
 	};
+
+	// Return full date
+	_helpers.fullDate = function(context, options) {
+		if (!options && context.hasOwnProperty('hash')) {
+			options = context;
+			context = undefined;
+			
+			if (this.data.post) {
+				context = this.data.post.publishedDate;
+			}
+		}
+		
+		// ensure that context is undefined, not null, as that can cause errors
+		context = context === null ? undefined : context;
+		
+		var f = options.hash.format || 'MMMM DD YYYY',
+			timeago = options.hash.timeago,
+			fullDate;
+		
+		// if context is undefined and given to moment then current timestamp is given
+		// nice if you just want the current year to define in a tmpl
+		if (timeago) {
+			fullDate = moment(context).fromNow();
+		} else {
+			fullDate = moment(context).format(f);
+		}
+		return fullDate;
+	};
 	
 	// ### Category Helper
 	// Ghost uses Tags and Keystone uses Categories

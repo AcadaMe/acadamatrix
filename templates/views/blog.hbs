@@ -2,7 +2,7 @@
 {{>page-top}}
 <div class="container" id="overlays">
 	<div class="row">
-		<div class="col-md-9 blog-custom" id="blog-body">
+		<div class="col-md-8 blog-custom" id="blog-body">
 			
 			<!-- Start of blog index entries -->
 			
@@ -35,7 +35,7 @@
 
 					{{/if}}
 
-					<h4>{{{title}}}</h4>
+					<h4><a href="{{postUrl slug}}">{{{title}}}</a></h4>
 						<em class="small branding">Posted {{#if author.name.first}}by: {{author.name.first}}{{/if}} / {{{categoryList categories prefix="Posted in "}}} </em>
 						<p class="blog-post">{{{content.brief}}}</p>
 					<a href="{{postUrl slug}}"><span class="heavy pull-right">
@@ -50,7 +50,7 @@
 		
 		<!-- Start of sidebar -->
 		
-		<div class="col-md-3" id="blog-sidebar">
+		<div class="col-md-offset-1 col-md-3" id="blog-sidebar">
 		
 			<h4 class="no-bottom-margin no-top-margin">Categories</h4>
 				<hr class="underline">

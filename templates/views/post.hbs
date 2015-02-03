@@ -1,15 +1,14 @@
 <!-- Start of blog post -->
 {{>page-top}}
-<div class="container">
+<div class="container single-post">
 	<div class="row">
-		<div class="col-md-9">
-			<h4 class="no-bottom-margin">{{data.post.title}}</h4>
+		<div class="col-md-8">
+			<h4 class="sub-title">{{data.post.title}}</h4>
 				<hr class="underline">
-					<p class="branding"><em>{{#if author.name.first}}by {{author.name.first}}{{/if}}</em></p>
+					<p class="branding"><em>{{#if data.post.author.name.first}}Posted by {{data.post.author.name.first}}{{/if}}</em> on {{fullDate}}</p>
 
 					{{#if data.post.image.url}}
 						<img class="blog-thumb" src="{{data.post.image.url}}" alt="Blog image">
-							<div class="caption small"><em>This is a caption</em></div>
 					{{/if}}
 					
 					<!-- Start of article content -->
@@ -31,7 +30,7 @@
 	
 	<!-- Blog sidebar -->
 		
-		<div class="col-md-3" id="blog-sidebar">
+		<div class="col-md-offset-1 col-md-3" id="blog-sidebar">
 		
 			<h4 class="no-bottom-margin no-top-margin">Recent Posts</h4>
 				<hr class="underline">
